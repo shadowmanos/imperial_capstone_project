@@ -1,0 +1,21 @@
+<h4><span style="color: #1c2157;"><strong>Datasheet for your BBO capstone project data set.</strong></span></h4>
+<ul>
+    <li><strong><span>Motivation: </span></strong><span>why did you create this data set? What task does it support?</span></li>
+</ul>
+<p><span>The dataset is created by weekly probing 8 black box models, by providing values for each feature, and receiving an output. The intention to find the maximum output value within a bounded area. The task it supports to complete the capstone project for this course, and gain experience with black box optimisation and bayesian optimisation.</span></p>
+<ul>
+    <li><strong><span>Composition:</span></strong><span> what does it contain? What is the size and format and are there any gaps?</span></li>
+</ul>
+<p><span>It contains numerical input values for 8 black box models and numeric outputs. The are 2 inputs for the first 2 black boxes, 3 for the 3rd, 4 for 4th and 5th, 5 for the 6th, 6 for the 7th, and 8 for the last one. All input values are between 0.0 and 1.0. All black boxes have 1 output with different output ranges. The number of samples we started with vary from 10 for the first one to 40 for the last, and we can probe another 12 times. Naturally, we can't cover the area as comprehensively as we'd like, and once we find some promising areas we'll focus there for optimums, leaving gaps elsewhere.</span></p>
+<ul>
+    <li><strong><span>Collection process: </span></strong><span>how were the queries generated? What strategy did you use? Over what time frame?</span></li>
+</ul>
+<p><span>For each black box I am fitting a Gaussian process with Constant, White Noise, and Matern kernels, and then find the maximum value for a Predicted Improvement acquisition function. The corresponding feature values for which acquisition is maximised is the point I'll probe next (query). Acquisition was tuned for exploration initially but focused on exploitation after the first 5 queries.</span></p>
+<ul>
+    <li><strong><span>Preprocessing and uses:</span></strong><span> have you applied any transformations? What are the intended and inappropriate uses?</span></li>
+</ul>
+<p><span>The libraries I am using for Gaussian process fitting, normalise the existing output values for 0 mean and unitary standard deviation. The dataset is only intended for the particular capstone project, no other use would be appropriate.</span></p>
+<ul>
+    <li><strong><span>Distribution and maintenance:</span></strong><span> where is the data set available? What are the terms of use? Who maintains it?</span></li>
+</ul>
+<p><span>The data is available through the capstone project portal and email I receive after my new queries are processed. I am copying all inputs and outputs on the python script I am using to perform Bayesian optimisation. This python script will be uploaded on my GitHub account with a permissive MIT License. There would be no maintenance after the capstone is complete.&nbsp;</span></p>
