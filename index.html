@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Capstone project for my Machine Learning Professional Certificate at Imperial College</title>
+</head>
+<body>
+<h4><strong>Capstone project for my Machine Learning Professional Certificate at Imperial College</strong></h4>
+<ul>
+  <li><strong>Section 1: project overview</strong>
+    <p>As part of studying for a Machine Learning professional certificate with Imperial, we were assigned a capstone project. This is meant to
+      emulate a real world situation where we have a few measurements, inputs and outputs, of an expensive and slow to test black box model, and we
+      want to iteratively test a few other points (inputs), to hopefully find the maximum point of model. It differs from some trivial models used in
+      textbooks and online tutorials where you could train a machine learning model within minutes. Here you have to sample economically. This
+      reflects some real world challenges like user experience studies in websites that take weeks, or hyper parameter tuning of large ANN models. The
+      assignment encourages trying different strategies during the exercise based on the new outputs we receive. This capstone project can be part of
+      a growing portfolio of example ML projects on my GitHub profile, demonstrating relevant experience even outside work settings.</p></li>
+
+  <li><strong>Section 2: inputs and outputs</strong>
+    <p>There are 8 sets of inputs and outputs, referring to 8 independent models. The inputs range from 2 to 8 features with numerical values between
+      0.0 and 1.0. Each model has one output (for each input vector), with a variety of ranges, including some with flipped signs to turn minimisation
+      problems to maximisation ones. Initial inputs/outputs are provided as numpy files, whereas later values are sent by email. Once we choose a new
+      point to test for each of the 8 black box models, we provide it on a WebUI as dash separated values.</p></li>
+
+  <li><strong>Section 3: challenge objectives</strong>
+    <p>Experience a more real life situation than trivial tutorials, where the main constraint is we have to sample a black box model economically. As
+      students in this course, we need to try a few techniques and software libraries we've learned so far. We are aiming for maximisation for all 8
+      models. 2 of them are minimisation problems turned into maximisation by multiplying output with -1.0. We have 10 to 40 initial inputs and output
+      rows, and getting a new row every week, with a delay of days.</p></li>
+
+  <li><strong>Section 4: technical approach</strong>
+    <p>I created a python script with the initial inputs and outputs for each model, and a loop going through the 8 models, fitting a Gaussian
+      process, applying an expected improvement acquisitions function, and using LGBF optimisation from scipy to find the next point based on the
+      surrogate. I run this process many times for each model, each time with a random starting point for the optimisation.</p>
+    <p>It's easy to copy and paste new inputs and outputs into it every week. There is a configurable parameter to favour exploration or exploitation
+      in the acquisition function. The data for each model is placed in a large python dictionary, where apart from inputs and outputs I can configure
+      maximum iterations and other parameters, separately for each model. I wouldn't say my approach is entirely unique as I studied a few examples I
+      found online. It does seem more automated than other students in this course.</p></li>
+  <li><strong>Section 5: More details</strong>
+    <ul>
+      <li><a href="//shadowmanos.github.io/imperial_capstone_project/technical_foundation.html">Technical foundation</a></li>
+      <li><a href="//shadowmanos.github.io/imperial_capstone_project/datasheet.html">Datasheet</a></li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>
