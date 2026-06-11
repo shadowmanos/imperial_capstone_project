@@ -3,41 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Technical foundations of your black-box optimisation challenge</title>
+  <link rel="stylesheet" href="capstone.css">
 </head>
 <body>
-<h4><strong>Technical foundations of your black-box optimisation challenge</strong></h4>
-<ul>
-  <li><strong>What is the main technical justification for your current BBO approach? Which aspect of prior research or established methods supports
-    your choice?</strong>
-    <p>I am using Bayesian Optimisation with a Gaussian Process as a surrogate model. GP is reported on many online sources as appropriate when few
-      samples are available e.g. fewer than a few 1000s and we have 10-50 hear, and inappropriate for more than a few dozen dimensions, and we have
-      max 8 here. BO has been recommended in this course and other sources for black box optimisations with expensive functions to evaluate.</p></li>
+<h1>Technical foundations of your black-box optimisation challenge</h1>
 
-  <li><strong>Which academic papers have you used to guide your design? Which ideas or techniques from the literature are most relevant, and how do
-    they strengthen your project?</strong>
-    <p>I've mostly followed the documentation for scikit-learn and scipy rather than academic papers. I also googled examples for BO with GP to come
-      up with a decent python script. I am trying different kernels and different hyperparameters monitoring which yields good improvement for each of
-      the 8 black box functions. My approach is more practical than academic.</p></li>
+<h3>What is the main technical justification for your current BBO approach? Which aspect of prior research or established methods supports your choice?</h3>
+<p>I am using Bayesian Optimisation with a Gaussian Process as a surrogate model. GP is reported on many online sources as appropriate when few
+   samples are available e.g. fewer than a few 1000s and we have 10-50 hear, and inappropriate for more than a few dozen dimensions, and we have
+   max 8 here. BO has been recommended in this course and other sources for black box optimisations with expensive functions to evaluate.</p>
 
-  <li><strong>Which third-party libraries or frameworks (e.g. PyTorch, TensorFlow, scikit-learn) are central to your approach? Why were these the
-    right choices compared with possible alternatives?</strong>
-    <p>I am primarily relying on scikit-learn for the Gaussian Process and kernels, and scipy for the optimisation functionality. These are well known
-      libraries, widely used in machine learning in general, and in this course in particular. They are rather easy to use by people like me that
-      don't have a PhD on the subject and are more practical than academic. Documentation is good and there are many tutorials and blogs to steal
-      ideas from. Python is far more practical to use than equivalent C/C++ programs than need compiling. I've avoided neural networks for surrogate
-      models as the advice I've seen online is that they work better for more than a few 1000 samples. Consequently, I haven't touched Pytorch or
-      Tensorflow.</p></li>
+<h3>Which academic papers have you used to guide your design? Which ideas or techniques from the literature are most relevant, and how do they strengthen your project?</h3>
+<p>I've mostly followed the documentation for scikit-learn and scipy rather than academic papers. I also googled examples for BO with GP to come
+   up with a decent python script. I am trying different kernels and different hyperparameters monitoring which yields good improvement for each of
+   the 8 black box functions. My approach is more practical than academic.</p>
 
-  <li><strong>How do you plan to document and present these justifications in your GitHub repository so that peers, facilitators and future
-    strongployers can clearly understand your reasoning?</strong>
-    <p>I am planning to explain the above arguments and add my python script so the simplicity of implementation is more obvious. Listing a few
-      available libraries with number of stars on GitHub and number of blogs would dstrongonstrate popularity. scipy and scikit-learn are generally
-      listed as requirstrongents in various job postings, so future strongployers would like to see thstrong being used well.</p></li>
+<h3>Which third-party libraries or frameworks (e.g. PyTorch, TensorFlow, scikit-learn) are central to your approach? Why were these the right choices compared with possible alternatives?</h3>
+<p>I am primarily relying on scikit-learn for the Gaussian Process and kernels, and scipy for the optimisation functionality. These are well known
+   libraries, widely used in machine learning in general, and in this course in particular. They are rather easy to use by people like me that
+   don't have a PhD on the subject and are more practical than academic. Documentation is good and there are many tutorials and blogs to steal
+   ideas from. Python is far more practical to use than equivalent C/C++ programs than need compiling. I've avoided neural networks for surrogate
+   models as the advice I've seen online is that they work better for more than a few 1000 samples. Consequently, I haven't touched Pytorch or
+   Tensorflow.</p>
 
-  <li><strong>Looking ahead, what additional sources (research, benchmarks, software) might you consult to continue refining your strategy?</strong>
-    <p>I've seen other students above mention BBOBench, Bayesmark, BoTorch, and GPyTorch here. I need to read up on these in case they offer any
-      obvious advantage. It is difficult to compare unless I could restart the whole capstone project with different tools to see which optimises
-      best. An exercise for after I complete this course maybe.</p></li>
-</ul>
+<h3>How do you plan to document and present these justifications in your GitHub repository so that peers, facilitators and future strongployers can clearly understand your reasoning?</h3>
+<p>I am planning to explain the above arguments and add my python script so the simplicity of implementation is more obvious. Listing a few
+   available libraries with number of stars on GitHub and number of blogs would dstrongonstrate popularity. scipy and scikit-learn are generally
+   listed as requirstrongents in various job postings, so future strongployers would like to see thstrong being used well.</p>
+
+<h3>Looking ahead, what additional sources (research, benchmarks, software) might you consult to continue refining your strategy</h3>
+<p>I've seen other students above mention BBOBench, Bayesmark, BoTorch, and GPyTorch here. I need to read up on these in case they offer any
+   obvious advantage. It is difficult to compare unless I could restart the whole capstone project with different tools to see which optimises
+   best. An exercise for after I complete this course maybe.</p>
 </body>
 </html>

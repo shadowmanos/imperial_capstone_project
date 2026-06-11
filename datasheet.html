@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Datasheet for your BBO capstone project data set</title>
+  <link rel="stylesheet" href="capstone.css">
 </head>
 <body>
-<h4><strong>Datasheet for your BBO capstone project data set</strong></h4>
-<ul>
-  <li><strong>Motivation: </strong>why did you create this data set? What task does it support?
-    <p>The dataset is created by weekly probing 8 black box models, by providing values for each feature, and receiving an output. The intention to
-      find the maximum output value within a bounded area. The task it supports to complete the capstone project for this course, and gain experience
-      with black box optimisation and bayesian optimisation.</p></li>
+<h1>Datasheet for your BBO capstone project data set</h1>
 
-  <li><strong>Composition:</strong> what does it contain? What is the size and format and are there any gaps?
-    <p>It contains numerical input values for 8 black box models and numeric outputs. The are 2 inputs for the first 2 black boxes, 3 for the 3rd, 4
-      for 4th and 5th, 5 for the 6th, 6 for the 7th, and 8 for the last one. All input values are between 0.0 and 1.0. All black boxes have 1 output
-      with different output ranges. The number of samples we started with vary from 10 for the first one to 40 for the last, and we can probe another
-      12 times. Naturally, we can't cover the area as comprehensively as we'd like, and once we find some promising areas we'll focus there for
-      optimums, leaving gaps elsewhere.</p></li>
+<h3>Motivation: why did you create this data set? What task does it support?</h3>
+<p>The dataset is created by weekly probing 8 black box models, by providing values for each feature, and receiving an output. The intention to
+   find the maximum output value within a bounded area. The task it supports to complete the capstone project for this course, and gain experience
+   with black box optimisation and bayesian optimisation.</p>
 
-  <li><strong>Collection process: </strong>how were the queries generated? What strategy did you use? Over what time frame?
-    <p>For each black box I am fitting a Gaussian process with Constant, White Noise, and Matern kernels, and then find the maximum value for a
-      Predicted Improvement acquisition function. The corresponding feature values for which acquisition is maximised is the point I'll probe next
-      (query). Acquisition was tuned for exploration initially but focused on exploitation after the first 5 queries.</p></li>
+<h3>Composition: what does it contain? What is the size and format and are there any gaps?</h3>
+<p>It contains numerical input values for 8 black box models and numeric outputs. The are 2 inputs for the first 2 black boxes, 3 for the 3rd, 4
+   for 4th and 5th, 5 for the 6th, 6 for the 7th, and 8 for the last one. All input values are between 0.0 and 1.0. All black boxes have 1 output
+   with different output ranges. The number of samples we started with vary from 10 for the first one to 40 for the last, and we can probe another
+   12 times. Naturally, we can't cover the area as comprehensively as we'd like, and once we find some promising areas we'll focus there for
+   optimums, leaving gaps elsewhere.</p>
 
-  <li><strong>Preprocessing and uses:</strong> have you applied any transformations? What are the intended and inappropriate uses?
-    <p>The libraries I am using for Gaussian process fitting, normalise the existing output values for 0 mean and unitary standard deviation. The
-      dataset is only intended for the particular capstone project, no other use would be appropriate.</p></li>
+<h3>Collection process: how were the queries generated? What strategy did you use? Over what time frame?</h3>
+<p>For each black box I am fitting a Gaussian process with Constant, White Noise, and Matern kernels, and then find the maximum value for a
+   Predicted Improvement acquisition function. The corresponding feature values for which acquisition is maximised is the point I'll probe next
+   (query). Acquisition was tuned for exploration initially but focused on exploitation after the first 5 queries.</p>
 
-  <li><strong>Distribution and maintenance:</strong> where is the data set available? What are the terms of use? Who maintains it?
-    <p>The data is available through the capstone project portal and email I receive after my new queries are processed. I am copying all inputs and
-      outputs on the python script I am using to perform Bayesian optimisation. This python script will be uploaded on my GitHub account with a
-      permissive MIT License. There would be no maintenance after the capstone is complete.</p>
-  </li>
-</ul>
+<h3>Preprocessing and uses: have you applied any transformations? What are the intended and inappropriate uses?</h3>
+<p>The libraries I am using for Gaussian process fitting, normalise the existing output values for 0 mean and unitary standard deviation. The
+   dataset is only intended for the particular capstone project, no other use would be appropriate.</p>
+
+<h3>Distribution and maintenance: where is the data set available? What are the terms of use? Who maintains it?</h3>
+<p>The data is available through the capstone project portal and email I receive after my new queries are processed. I am copying all inputs and
+   outputs on the python script I am using to perform Bayesian optimisation. This python script will be uploaded on my GitHub account with a
+   permissive MIT License. There would be no maintenance after the capstone is complete.</p>
+</body>
+</html>

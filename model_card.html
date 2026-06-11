@@ -3,41 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Model card for the BBO optimisation approach</title>
+  <link rel="stylesheet" href="capstone.css">
 </head>
 <body>
-<h4><strong>Model card for the BBO optimisation approach</strong></h4>
-<ul>
-  <li><strong>Overview:</strong> name of your approach, type and version. <strong>Details: </strong>explain your strategy across the ten rounds,
-    including the techniques you used and how your approach evolved.
-    <p>I am doing Bayesian Optimisation. For each black box I am fitting a Gaussian process with Constant, White Noise, and Matern kernels, and then
-      find the maximum value for a Predicted Improvement acquisition function. I restart the GP and kernel fitting process, with the python libraries
-      picking random starting points. I am also restarting the maximisation of the acquisition function multiple times, with random starting points.
-      If I see that the algorithm veers into uninteresting areas, I restrict the bounds of the area to be tighter than 0.0-&gt;1.0, so it finds points
-      in promising areas. I am using numpy, scikit-learn, and scipy.</p></li>
+<h1>Model card for the BBO optimisation approach</h1>
 
-  <li><strong>Intended use: </strong>what tasks is it suitable for? What use cases should be avoided?
-    <p>The approach is suitable for black box optimisation, with continuous numeric inputs and outputs, and a very low budget for obtaining samples.
-      Gaussian process would be unsuitable if we had more than a few dozen inputs/features. NNs might be more successful than GPs as surrogate models
-      if we had a few thousand samples or more. Computational cost is low with the python script for all 8 black box functions running in less than 2
-      minutes on my laptop. Therefore, approach is appropriate if one doesn't have access to e.g. GPU clusters.</p></li>
+<h3>Overview: Name of your approach, type and version. Explain your strategy across the ten rounds, including techniques you used and how your approach evolved.</h3>
+<p>I am doing Bayesian Optimisation. For each black box I am fitting a Gaussian process with Constant, White Noise, and Matern kernels, and then
+   find the maximum value for a Predicted Improvement acquisition function. I restart the GP and kernel fitting process, with the python libraries
+   picking random starting points. I am also restarting the maximisation of the acquisition function multiple times, with random starting points.
+   If I see that the algorithm veers into uninteresting areas, I restrict the bounds of the area to be tighter than 0.0-&gt;1.0, so it finds points
+   in promising areas. I am using numpy, scikit-learn, and scipy.</p>
 
-  <li><strong>Performance:</strong> summarise your results across the eight functions. What metrics did you use?
-    <p>The metrics I am monitoring are the max value found for the acquisition function each week, the maximum output so far and whether I am seeing
-      progress each week, and length scales for the anisotropic kernel indicating which feature contributes more to increasing output. I am seeing
-      poor progress for functions 1 and 2, which seem to have a narrow spikes. I had decent results at first for 3, 4, 7, and 8, but now improvements
-      are rarer. function 5 keeps improving.</p></li>
+<h3>Intended use: what tasks is it suitable for? What use cases should be avoided?</h3>
+<p>The approach is suitable for black box optimisation, with continuous numeric inputs and outputs, and a very low budget for obtaining samples.
+   Gaussian process would be unsuitable if we had more than a few dozen inputs/features. NNs might be more successful than GPs as surrogate models
+   if we had a few thousand samples or more. Computational cost is low with the python script for all 8 black box functions running in less than 2
+   minutes on my laptop. Therefore, approach is appropriate if one doesn't have access to e.g. GPU clusters.</p>
 
-  <li><strong>Assumptions and limitations: </strong>what assumptions underlie your strategy? What are its constraints or failure modes?
-    <p>The main assumption is that the Gaussian process with the available kernels will sufficiently approximate the behaviour of the 8 black boxes,
-      with the few samples available. This seems to fail for the first 2 as they seem to exhibit narrow spikes where output rapidly increases. The
-      kernels appear to smooth over this spike rather than explore near it. As the project a small budget to obtain new samples (queries), the
-      approach will inexorably fail if there are 2 many local maximums, as we can't afford to explore too much.</p></li>
+<h3>Performance: summarise your results across the eight functions. What metrics did you use?</h3>
+<p>The metrics I am monitoring are the max value found for the acquisition function each week, the maximum output so far and whether I am seeing
+   progress each week, and length scales for the anisotropic kernel indicating which feature contributes more to increasing output. I am seeing
+   poor progress for functions 1 and 2, which seem to have a narrow spikes. I had decent results at first for 3, 4, 7, and 8, but now improvements
+   are rarer. function 5 keeps improving.</p>
 
-  <li><strong>Ethical considerations:</strong> how does transparency support reproducibility and real-world adaptation?
-    <p>People who run across my GitHub repo can run the python script and reproduce the results. To reproduce intermediate results one can comment out
-      the most recent data. The readme has a short description of my approach. I am relying on well known open source libraries, making the source
-      code easy to follow by other ML practioners that are likely using the same libraries daily. If I had hand coded everything myself it woudl be
-      difficult for others to follow my code and find non obvious bugs and issues.</p></li>
-</ul>
+<h3>Assumptions and limitations: what assumptions underlie your strategy? What are its constraints or failure modes?</h3>
+<p>The main assumption is that the Gaussian process with the available kernels will sufficiently approximate the behaviour of the 8 black boxes,
+   with the few samples available. This seems to fail for the first 2 as they seem to exhibit narrow spikes where output rapidly increases. The
+   kernels appear to smooth over this spike rather than explore near it. As the project a small budget to obtain new samples (queries), the
+   approach will inexorably fail if there are 2 many local maximums, as we can't afford to explore too much.</p>
+
+<h3>Ethical considerations: how does transparency support reproducibility and real-world adaptation?</h3>
+<p>People who run across my GitHub repo can run the python script and reproduce the results. To reproduce intermediate results one can comment out
+   the most recent data. The readme has a short description of my approach. I am relying on well known open source libraries, making the source
+   code easy to follow by other ML practioners that are likely using the same libraries daily. If I had hand coded everything myself it woudl be
+   difficult for others to follow my code and find non obvious bugs and issues.</p>
 </body>
 </html>
